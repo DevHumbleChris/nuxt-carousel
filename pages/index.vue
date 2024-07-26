@@ -219,7 +219,10 @@ const getPosition = (index: number) => {
       </button>
     </div>
     <div class="flex items-center justify-center lg:-mt-[3rem] font-bold">
-      <NuxtLink href="https://github.com/DevHumbleChris" target="_blank">
+      <NuxtLink
+        href="https://github.com/DevHumbleChris/nuxt-carousel"
+        target="_blank"
+      >
         <Button variant="link"> @thecodingmontana </Button>
       </NuxtLink>
     </div>
