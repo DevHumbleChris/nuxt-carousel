@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "shadcn-nuxt",
     "@vueuse/nuxt",
+    "@nuxtjs/google-fonts",
   ],
   shadcn: {
     /**
@@ -23,5 +24,13 @@ export default defineNuxtConfig({
   image: {
     quality: 80,
     format: ["webp"],
+  },
+  googleFonts: {
+    families: {
+      Raleway: {
+        wght: [100, 400],
+        ital: [100],
+      },
+    },
   },
 });
