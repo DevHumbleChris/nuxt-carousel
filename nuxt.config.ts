@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "@vueuse/motion/nuxt",
     "@nuxtjs/tailwindcss",
     "shadcn-nuxt",
+    "@vueuse/nuxt",
   ],
   shadcn: {
     /**
