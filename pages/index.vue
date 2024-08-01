@@ -70,6 +70,16 @@ const handleMove = (direction: number) => {
   images.value = imgArrCopy;
 };
 
+const autoPlay = (interval: number = 3000) => {
+  setInterval(() => {
+    handleMove(1); // Move to the next image
+  }, interval);
+};
+
+onMounted(() => {
+  autoPlay();
+});
+
 const getPosition = (index: number) => {
   const length = images.value.length;
   const position = length % 2 ? index - (length + 1) / 2 : index - length / 2;
@@ -81,14 +91,14 @@ const getPosition = (index: number) => {
   <div>
     <h1 class="text-3xl font-bold text-center mt-[3.5rem]">Nuxt Carousel</h1>
     <div
-      class="relative h-96 w-full lg:w-[90%] mx-auto items-center flex justify-center overflow-hidden -z-10 -mt-[2rem]"
+      class="relative -z-10 sm:z-0 h-96 w-full lg:w-[90%] mx-auto items-center flex justify-center overflow-hidden -mt-[2rem]"
     >
       <div
         v-for="(image, i) in images"
         :key="image.id"
         :class="
           cn(
-            'rounded-3xl overflow-hidden h-60 border border-neutral-200 dark:border-neutral-700 shadow-md mx-1 relative',
+            'rounded-3xl sm:-z-20 overflow-hidden h-60 border border-neutral-200 dark:border-neutral-700 shadow-md mx-1 relative',
             getPosition(i) === currentIndex
               ? 'flex-none aspect-[8/6] lg:aspect-[5/2] transition-all duration-700 relative'
               : 'aspect-[1/6] lg:aspect-[1/6] flex-shrink-0'
@@ -178,7 +188,7 @@ const getPosition = (index: number) => {
         </svg>
       </button>
     </div>
-    <div class="sm:hidden flex items-center justify-center -mt-[3.5rem]">
+    <div class="sm:hidden z-10 flex items-center justify-center -mt-[3.5rem]">
       <button
         @click="handleMove(-1)"
         class="grid h-14 w-14 place-content-center text-3xl"
